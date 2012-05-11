@@ -1,0 +1,18 @@
+<p>
+  <b>Title:</b>
+  <%=h @event.title %>
+</p>
+
+<p>
+  <b>Summary:</b>
+  <%=h @event.summary %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%=h @event.content %>
+</p>
+
+
+<%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Back', events_path %>

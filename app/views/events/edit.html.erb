@@ -1,0 +1,34 @@
+<h1>Editing event</h1>
+
+
+<%= error_messages_for :event %>
+
+<% form_for(@event) do |e| %>
+  <p>
+    <%= e.label :date %>   <br />
+<!-- this doesn;t work in heroku - why? -->
+    <%= e.date_select :date, { :order => [:day, :month, :year], :start_year => 1990 } %>
+  </p>
+  <p>
+    <%= e.label :title %><br />
+    <%= e.text_field :title %>
+  </p>
+  <p>
+    <%= e.label :summary %><br />
+    <%= e.text_area :summary, :cols => 60, :rows => 3 %>
+  </p>
+  <p>
+    <%= e.label :content %><br />
+    <%= e.text_area :content, :cols => 60, :rows => 5 %>
+  </p>
+  <p>
+    <%= label_tag :tags %><br />
+    <%= text_field_tag :taglist, @taglist, :size => 60 %>
+  </p>
+  <p>
+    <%= e.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @event %> |
+<%= link_to 'Back', events_path %>
